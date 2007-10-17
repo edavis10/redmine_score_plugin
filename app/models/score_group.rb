@@ -1,2 +1,2 @@
-class Score < ActiveRecord::Base
+class ScoreGroup < ActiveRecord::Base
 end

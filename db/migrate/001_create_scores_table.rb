@@ -8,7 +8,7 @@ class CreateScoresTable < ActiveRecord::Migration
     end
 
     # Record per group, e.x. "Profit"
-    create_table :score_group, :force => true do |t|
+    create_table :score_groups, :force => true do |t|
       t.column "name", :string
     end
 
