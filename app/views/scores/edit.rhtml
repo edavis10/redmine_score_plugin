@@ -1,21 +1,13 @@
 <h3>Scores for <%= @project.name -%></h3>
 
-<% @groups.each do |group| -%>
+<% @score_groups.each do |group| -%>
 <p><strong><%= group.name -%></strong>
-
-<% @scores.each do |score| -%>
-<%     if score.group_id == group.id %>
 
 <% form_for :score, :url =>{:action => 'edit', :id => @project} do |f|  %>
 
-<%= select("score_group","id", group.score_group_options.collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
-<%= hidden_field_tag("score_id", score.id) %>
-
+<%= select("score","value", group.option_values, { :include_blank => true }) %>
+<%= hidden_field_tag("score_group_id",group.id) %>
 <%= submit_tag "Score" -%>
-<% end %>
-
-<% end %>
-
 <% end %>
 
 <% end -%>

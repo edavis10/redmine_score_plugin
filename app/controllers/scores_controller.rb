@@ -4,19 +4,26 @@ class ScoresController < ApplicationController
 
 
   def index
-    @scores = Score.find_all_by_project_id(@project.id)
+    @score_groups = ScoreGroup.find(:all, :include => [:scores])
   end
 
   def edit
     case request.method
     when :post
-      @score = Score.find(params[:score_id]) || Score.new
-      @score.score_group_option_id = params[:score_group][:id]
-      @score.project_id = @project
+      @score = Score.find(:first, :conditions => ["project_id IN (?) AND score_group_id IN (?)",@project.id,params[:score_group_id]])
+      # Handle if the finder didn't find anything
+      # would be nice if we could use find_or_create_by with two params
+      if @score.nil?
+        @score = Score.new
+      end
+
+      @score.project_id = @project.id
+      @score.score_group_id = params[:score_group_id]
+      @score.value = params[:score][:value]
       @score.save
       redirect_to :action => 'index', :id => @project
     when :get
-      @scores = Score.find_all_by_project_id(@project.id)
+      @score_groups = ScoreGroup.find(:all, :include => [:scores])
     end
   end
 
@@ -24,9 +31,5 @@ class ScoresController < ApplicationController
 private
   def find_project
     @project=Project.find(params[:id])
-  end
-
-  def find_groups
-    @groups = ScoreGroup.find(:all, :include => [ :score_group_options ])
   end
 end

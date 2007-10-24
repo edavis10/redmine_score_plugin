@@ -4,9 +4,10 @@ class CreateScoresTable < ActiveRecord::Migration
     create_table :scores, :force => true do |t|
       t.column "value", :integer
       t.column "project_id", :integer
+      t.column "score_group_id", :integer
     end
 
-    create_table :score_group, :force => true do |t|
+    create_table :score_groups, :force => true do |t|
       t.column "name", :string
     end
 
