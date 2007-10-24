@@ -6,7 +6,7 @@
 
 <p><label for="score_group_<%= group.id -%>"><%= group.name -%></label><br />
 
-<%= select("score_group",group.id, Score.options_for_select, { :include_blank => true }) %>
+<%= select("score_group",group.id, ScoreOption.find_all_by_score_group_id(group.id).collect {|p| [ "#{p.id} -  #{p.name}", p.id ] }, { :include_blank => true }) %>
 </p>
 <% end # each group %>
 

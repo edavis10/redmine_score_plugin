@@ -11,7 +11,6 @@ class ScoresController < ApplicationController
   def edit
     case request.method
     when :post
-#      raise
       @scores = params[:score_group]
       @scores.each do |group_id,scoring|
 
@@ -36,6 +35,7 @@ class ScoresController < ApplicationController
     when :get
       # TODO: select the current value, will require limited the ScoreGroup find to the current project
       @score_groups = ScoreGroup.find(:all, :include => [:scores])
+
     end
   end
 

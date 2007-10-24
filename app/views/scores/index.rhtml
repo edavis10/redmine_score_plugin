@@ -1,10 +1,10 @@
 <h3>Scores for <%= @project.name -%></h3>
 
 <% @score_groups.each do |group| -%>
-<p><strong><%= group.name -%></strong> -
+<p><strong><%= group.name -%></strong>:
 
 <% value = group.project_score_value(@project) %>
-<%= Score.option_name_for(value) -%> (<%= value -%>)
+<%= value -%> - <%= ScoreOption.name_for(group,value) -%>
 
 </p>
 <% end -%>
