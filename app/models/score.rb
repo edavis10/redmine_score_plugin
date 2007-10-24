@@ -6,7 +6,7 @@ class Score < ActiveRecord::Base
     scores = Score.find_all_by_project_id(project_id)
     sum = 0
     scores.each do |score|
-      sum += score.value
+      sum += score.value unless score.value.nil?
     end
     return sum
   end
