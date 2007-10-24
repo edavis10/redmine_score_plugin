@@ -5,6 +5,7 @@ class ScoresController < ApplicationController
 
   def index
     @score_groups = ScoreGroup.find(:all, :include => [:scores])
+    @score_total = Score.project_totals(@project.id)
   end
 
   def edit
