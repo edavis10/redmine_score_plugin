@@ -1,2 +1,21 @@
 <h3>Scores for <%= @project.name -%></h3>
 
+<% @groups.each do |group| -%>
+<p><strong><%= group.name -%></strong> -
+
+<%   @scores.each do |score| -%>
+<%     if score.group_id == group.id %>
+
+<%=      h(score.score_group_option.name) -%>
+
+<%     end %>
+
+<%   end %>
+</p>
+<% end -%>
+
+<p><%= link_to "Edit", :controller => 'scores', :action => 'edit', :id => @project -%></p>
+
+<pre>
+<%= @scores.to_yaml -%>
+</pre>

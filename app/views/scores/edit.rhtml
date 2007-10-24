@@ -1,0 +1,19 @@
+<h3>Scores for <%= @project.name -%></h3>
+
+<% @groups.each do |group| -%>
+<p><strong><%= group.name -%></strong>
+
+<% form_for :score, :url =>{:action => 'edit', :id => @project} do |f|  %>
+
+<%= select("score_group","id", group.score_group_options.collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+
+<%= submit_tag "Score" -%>
+<% end %>
+
+<% end -%>
+
+<p><%= link_to "Cancel", :controller => 'scores', :action => 'index', :id => @project -%></p>
+
+<pre>
+<%= @groups.to_yaml -%>
+</pre>
