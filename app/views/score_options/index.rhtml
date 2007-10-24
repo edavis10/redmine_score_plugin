@@ -1,0 +1,14 @@
+<h3>Score Options</h3>
+
+<% @score_groups.each do |group| -%>
+<h4><%= group.name -%></h4>
+
+<% so = ScoreOption.find_all_by_score_group_id(group.id) -%>
+<% so.each do |option| -%>
+<p>
+<%= option.name -%> (<%= option.value -%> points)
+</p>
+<% end -%>
+<% end -%>
+
+<p><%= link_to "Edit Score Options", :controller => 'score_options', :action => 'edit', :id => @project -%></p>

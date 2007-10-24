@@ -12,4 +12,5 @@
 <h3>Total: <%= @score_total -%> points</h3>
 
 <p><%= link_to "Edit", :controller => 'scores', :action => 'edit', :id => @project -%></p>
-
+<p><%= link_to "View Score Options", :controller => 'score_options', :action => 'index', :id => @project -%></p>
+<p><%= link_to "Edit Score Options", :controller => 'score_options', :action => 'edit', :id => @project -%></p>

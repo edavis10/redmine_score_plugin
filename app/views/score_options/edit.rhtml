@@ -1,0 +1,22 @@
+<h3>Scores for Options</h3>
+
+<% form_for :score_options, :url =>{:action => 'edit', :id => @project} do |f|  %>
+
+<% @score_groups.each do |group| -%>
+<h3><%= group.name -%></h3>
+
+<% group.score_options.each do |option| -%>
+<p>
+<label><%= option.value -%></label>
+<%= text_field("score_option", option.id, :value => option.name ) -%>
+</p>
+
+<% end # each option %>
+
+<% end # each group %>
+
+<%= submit_tag "Update" -%>
+
+<% end # form -%>
+
+<p><%= link_to "Cancel", :controller => 'scores', :action => 'index', :id => @project -%></p>

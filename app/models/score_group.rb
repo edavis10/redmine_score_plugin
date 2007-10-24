@@ -1,6 +1,7 @@
 class ScoreGroup < ActiveRecord::Base
   # TODO: should only allow one score per project
   has_many :scores
+  has_many :score_options
 
   def project_score_value(project)
     self.scores.each do |score|

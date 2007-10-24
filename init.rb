@@ -16,6 +16,8 @@ Redmine::Plugin.register "scores_plugin" do
     # It will be listed on the permissions screen
     permission :view_scores, {:scores => [:index]}
     permission :edit_scores, {:scores => [:edit]}
+    permission :view_score_options, {:score_options => [:index]}
+    permission :edit_score_options, {:score_options => [:edit]}
   end
 
   # A new item is added to the project menu (because Redmine can't add it anywhere else)
