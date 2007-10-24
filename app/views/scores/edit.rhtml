@@ -1,6 +1,7 @@
 <h3>Scores for <%= @project.name -%></h3>
 
 <% @score_groups.each do |group| -%>
+
 <p><strong><%= group.name -%></strong>
 
 <% form_for :score, :url =>{:action => 'edit', :id => @project} do |f|  %>
@@ -13,7 +14,3 @@
 <% end -%>
 
 <p><%= link_to "Cancel", :controller => 'scores', :action => 'index', :id => @project -%></p>
-
-<pre>
-<%= @groups.to_yaml -%>
-</pre>

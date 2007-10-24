@@ -23,6 +23,7 @@ class ScoresController < ApplicationController
       @score.save
       redirect_to :action => 'index', :id => @project
     when :get
+      # TODO: select the current value, will require limited the ScoreGroup find to the current project
       @score_groups = ScoreGroup.find(:all, :include => [:scores])
     end
   end
