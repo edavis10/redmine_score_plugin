@@ -5,7 +5,7 @@
 
 <% form_for :score, :url =>{:action => 'edit', :id => @project} do |f|  %>
 
-<%= select("score","value", group.option_values, { :include_blank => true }) %>
+<%= select("score","value", Score.options_for_select, { :include_blank => true }) %>
 <%= hidden_field_tag("score_group_id",group.id) %>
 <%= submit_tag "Score" -%>
 <% end %>

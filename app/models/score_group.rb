@@ -11,14 +11,4 @@ class ScoreGroup < ActiveRecord::Base
     return "Not scored"
   end
 
-  def option_values
-    options = [
-               ["Low","1"],
-               ["Med-Low","2"],
-               ["Medium","3"],
-               ["Med-High","4"],
-               ["High","5"],
-              ]
-    return options;
-  end
 end

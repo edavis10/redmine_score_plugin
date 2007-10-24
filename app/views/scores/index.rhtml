@@ -3,7 +3,8 @@
 <% @score_groups.each do |group| -%>
 <p><strong><%= group.name -%></strong> -
 
-<%= group.project_score_value(@project) %>
+<% value = group.project_score_value(@project) %>
+<%= Score.option_name_for(value) -%> (<%= value -%>)
 
 </p>
 <% end -%>
