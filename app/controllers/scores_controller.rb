@@ -10,17 +10,27 @@ class ScoresController < ApplicationController
   def edit
     case request.method
     when :post
-      @score = Score.find(:first, :conditions => ["project_id IN (?) AND score_group_id IN (?)",@project.id,params[:score_group_id]])
-      # Handle if the finder didn't find anything
-      # would be nice if we could use find_or_create_by with two params
-      if @score.nil?
-        @score = Score.new
+#      raise
+      @scores = params[:score_group]
+      @scores.each do |group_id,scoring|
+
+        @score = Score.find(:first, :conditions => ["project_id IN (?) AND score_group_id IN (?)",@project.id,group_id])
+        # Handle if the finder didn't find anything
+        # would be nice if we could use find_or_create_by with two params
+        if @score.nil?
+          @score = Score.new
+        end
+
+        @score.project_id = @project.id
+        @score.score_group_id = group_id
+        @score.value = scoring
+        if not @score.save
+          flash[:error] = "Opps, your score for Group ##{group_id} did not save.  Sorry"
+        end
+
       end
 
-      @score.project_id = @project.id
-      @score.score_group_id = params[:score_group_id]
-      @score.value = params[:score][:value]
-      @score.save
+      flash[:notice] = "Saved scores"
       redirect_to :action => 'index', :id => @project
     when :get
       # TODO: select the current value, will require limited the ScoreGroup find to the current project

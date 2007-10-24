@@ -1,16 +1,17 @@
 <h3>Scores for <%= @project.name -%></h3>
 
-<% @score_groups.each do |group| -%>
-
-<p><strong><%= group.name -%></strong>
-
 <% form_for :score, :url =>{:action => 'edit', :id => @project} do |f|  %>
 
-<%= select("score","value", Score.options_for_select, { :include_blank => true }) %>
-<%= hidden_field_tag("score_group_id",group.id) %>
-<%= submit_tag "Score" -%>
-<% end %>
+<% @score_groups.each do |group| -%>
 
-<% end -%>
+<p><label for="score_group_<%= group.id -%>"><%= group.name -%></label><br />
+
+<%= select("score_group",group.id, Score.options_for_select, { :include_blank => true }) %>
+</p>
+<% end # each group %>
+
+<%= submit_tag "Score" -%>
+
+<% end # form -%>
 
 <p><%= link_to "Cancel", :controller => 'scores', :action => 'index', :id => @project -%></p>
