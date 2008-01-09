@@ -1,4 +1,5 @@
 class ScoreOptionsController < ApplicationController
+  unloadable
   layout 'base'
   before_filter :find_project, :authorize
 
@@ -12,7 +13,7 @@ class ScoreOptionsController < ApplicationController
     when :post
       @score_options = params[:score_option]
       @score_options.each do |id,text|
-        
+
         @score_option = ScoreOption.find_or_create_by_id(id)
 
         @score_option.name = text

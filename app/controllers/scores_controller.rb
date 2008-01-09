@@ -1,4 +1,5 @@
 class ScoresController < ApplicationController
+  unloadable
   layout 'base'
   before_filter :find_project, :authorize
 
