@@ -1,0 +1,36 @@
+# Redmine Project Scores plugin
+
+This is a plugin to let a user score their projects on different criteria.
+
+**THIS IS ALPHA SOFTWARE, DO NOT USE ON A PRODUCTION SYSTEM**
+
+## Features
+
+* Projects can be scored based on user defined values
+* Score groups can be setup to rank a project in different areas (e.g. Profitability, Fun)
+* Total score for a project is calculated
+
+## Install
+
+1. Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins
+2. Setup the databases using the migrations.
+   rake db:migrate_plugins
+3. Login to your Redmine install as an Administrator
+4. Enable the "Score Module" permissions for your Roles
+5. Add the "Score module" to the enabled modules for your project
+6. The link to the plugin should appear on that project's navigation
+
+## License
+
+This plugin is licensed under the GNU GPL v2.  See LICENSE.txt and GPL.txt for details.
+
+## Project help
+
+If you need help you can contact the maintainer at his email address (See CREDITS.txt) or create an issue in the Bug Tracker.
+
+### Bug tracker
+
+If you would like to report a bug or request a new feature the bug tracker is located at:
+
+   https://projects.littlestreamsoftware.com
+
