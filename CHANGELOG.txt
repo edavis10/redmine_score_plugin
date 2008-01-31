@@ -1,0 +1,78 @@
+2008-01-31  edavis
+
+	* Rakefile:
+	  * Adding project Rakefile, #572
+	* COPYRIGHT.txt, CREDITS.txt, GPL.txt, README.txt:
+	  * Adding project documentation and license, #572
+	* README:
+	  * Removed old Readme
+	* db/migrate/003_add_default_data.rb:
+	  * Added a migration to setup some default data values. #269
+
+2008-01-09  edavis
+
+	* app/controllers/score_options_controller.rb, app/controllers/scores_controller.rb:
+	  * Marking controllers as unloadable (http://dev.rubyonrails.org/ticket/6001)
+
+2007-10-24  edavis
+
+	* app/models/score.rb:
+	  * Skipping over nil scores for the sum
+	* app/views/scores/edit.rhtml:
+	  * Fixed a bug where the id was used instead of the value
+	* app/views/scores/edit.rhtml:
+	  * Fixed a bug where the id was used instead of the value
+	* app/controllers/score_options_controller.rb, app/models/score_group.rb, app/views/score_options,
+	  app/views/score_options/edit.rhtml, app/views/score_options/index.rhtml, app/views/scores/index.rhtml,
+	  init.rb:
+	  * Added a controller to view and edit the different score options
+	  
+	  #265
+	* app/controllers/scores_controller.rb, app/models/score.rb, app/models/score_option.rb,
+	  app/views/scores/edit.rhtml, app/views/scores/index.rhtml, db/migrate/002_create_score_options_table.rb:
+	  * Added table and model to hold the ScoreOptions
+	  * Each ScoreOption has a value that corrsponds to the int of the score and
+	  the name which represents the description for that value.
+	  * Removed hard coded scores
+	  
+	  #265
+	* app/controllers/scores_controller.rb, app/models/score.rb, app/views/scores/index.rhtml:
+	  * Added the total scores for the project to the view. Closes #264
+	* app/controllers/scores_controller.rb, app/views/scores/edit.rhtml:
+	  * Changed the edit methods so multiple scores are submitted in one form.
+	  
+	  Closes #263
+	* app/controllers/scores_controller.rb, app/views/scores/edit.rhtml, app/views/scores/index.rhtml:
+	  * Removed debugging and added TODO
+	* app/models/score.rb, app/models/score_group.rb, app/views/scores/edit.rhtml, app/views/scores/index.rhtml:
+	  * Adding the option values and names
+	* app/controllers/scores_controller.rb, app/models/score_group.rb, app/views/scores/edit.rhtml,
+	  app/views/scores/index.rhtml, db/migrate/001_create_scores_table.rb:
+	  * Simpler implementation
+	* app/controllers/scores_controller.rb, app/models/score.rb, app/models/score_group.rb,
+	  app/models/score_group_option.rb, app/views/scores/edit.rhtml, db/migrate/001_create_scores_table.rb:
+	  * Way too complex design for this simple plugin, purging all extra crap
+	* app/controllers/scores_controller.rb, app/models/score.rb, app/models/score_group.rb,
+	  app/models/score_group_option.rb, app/views/scores/edit.rhtml, app/views/scores/index.rhtml,
+	  db/migrate/001_create_scores_table.rb:
+	  * Lot of changes that never made it in.
+	  * Hack job :)
+	  * Scores#index should now show the correct data
+
+2007-10-17  edavis
+
+	* app/models/score.rb, app/models/score_group.rb, db/migrate/001_create_scores_table.rb:
+	  * Fixed tablename
+	  * Fixed class name
+	* app/models, app/models/score.rb, app/models/score_group.rb, app/views/scores/index.rhtml, db, db/migrate,
+	  db/migrate/001_create_scores_table.rb:
+	  * Added migration and basic models
+	* app/controllers/scores_controller.rb, app/views/scores, app/views/scores/index.rhtml, init.rb:
+	  * Added a controller
+	  * Added a basic view
+	  * Changed the controller name to plural
+	* README, app, app/controllers, app/views, assets, assets/images, assets/stylesheets, init.rb, lang:
+	  * Adding basic Redmine plugin structure
+	* branches, tags, .:
+	  * Adding inital project structure
+
