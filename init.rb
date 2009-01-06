@@ -1,9 +1,7 @@
 # Redmine sample plugin
 require 'redmine'
 
-RAILS_DEFAULT_LOGGER.info 'Starting Project Scores plugin for Redmine'
-
-Redmine::Plugin.register "scores_plugin" do
+Redmine::Plugin.register "redmine_score_plugin" do
   name 'Project Scores Plugin'
   author 'Eric Davis of Little Stream Software'
   description 'This is a scoring plugin for Redmine that will allow projects to be scored'
